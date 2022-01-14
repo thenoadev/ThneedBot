@@ -18,8 +18,6 @@
     "emoji-log": "^1.0.2",
     "express": "^4.17.1",
     "fresh.db": "^1.0.53",
-    "node-fetch": ">=2.6.1",
-    "tiktok-scraper": "^1.4.36",
     "timeTraveller": "^0.2.1"
   }
 }
