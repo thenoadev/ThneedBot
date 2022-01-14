@@ -1,0 +1,25 @@
+{
+  "name": "thneedbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@calipsa/timer": "^1.0.0",
+    "@discordjs/builders": "^0.11.0",
+    "@discordjs/rest": "^0.2.0-canary.0",
+    "discord-api-types": "^0.26.1",
+    "discord-webhook-node": "^1.1.8",
+    "discord.js": "^13.5.1",
+    "emoji-log": "^1.0.2",
+    "express": "^4.17.1",
+    "fresh.db": "^1.0.53",
+    "node-fetch": ">=2.6.1",
+    "tiktok-scraper": "^1.4.36",
+    "timeTraveller": "^0.2.1"
+  }
+}
