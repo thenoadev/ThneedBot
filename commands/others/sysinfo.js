@@ -30,9 +30,9 @@ module.exports = {
         )
         .addFields({
           name: `Memory`,
-          value: `${memInfo[0] / 1024 / 1024}MB/${
-            memInfo[1] / 1024 / 1024
-          }MB (${memInfo[2] / 1024 / 1024}MB Free)`,
+          value: `${Math.floor(memInfo[0] / 1048576)}MB/${
+            Math.floor(memInfo[1] / 1048576)
+          }MB (${Math.floor(memInfo[2] / 1048576)}MB Free)`,
         })
         .addFields(
           { name: `Distro`, value: `${osInfo[0]}`, inline: true },
