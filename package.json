@@ -1,6 +1,6 @@
 {
   "name": "thneedbot",
-  "version": "1.01.006",
+  "version": "1.10.006", // x.xx.xxx -> Version.Commands.Patches
   "description": "",
   "main": "index.js",
   "scripts": {
