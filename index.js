@@ -25,6 +25,9 @@ const commandFiles = fs
 const commandFilesMC = fs
   .readdirSync("./commands/mc")
   .filter((file) => file.endsWith(".js"));
+const commandFilesOther = fs
+  .readdirSync("./commands/others")
+  .filter((file) => file.endsWith(".js"));
 
 for (const file of commandFiles) {
   const command = require(`./commands/${file}`);
@@ -32,6 +35,10 @@ for (const file of commandFiles) {
 }
 for (const file of commandFilesMC) {
   const command = require(`./commands/mc/${file}`);
+  client.commands.set(command.data.name, command);
+}
+for (const file of commandFilesOther) {
+  const command = require(`./commands/others/${file}`);
   client.commands.set(command.data.name, command);
 }
 
