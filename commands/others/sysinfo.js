@@ -31,15 +31,18 @@ module.exports = {
           { name: `Cores`, value: `- ${cpuInfo[3]} cores`, inline: true }
         )
         .addFields(
-            { name: `Distro`, value: `- ${osInfo[0]}`, inline: true },
-            { name: `Platform`, value: `- ${osInfo[1]}`, inline: true },
-            { name: `Release`, value: `- ${osInfo[2]}`, inline: true },
+          { name: `Distro`, value: `- ${osInfo[0]}`, inline: true },
+          { name: `Platform`, value: `- ${osInfo[1]}`, inline: true },
+          { name: `Release`, value: `- ${osInfo[2]}`, inline: true }
         )
-        .addFields(
-            { name: `Memory`, value: `- ${memInfo[0]}MB/${memInfo[1]}MB (${memInfo[2]}MB Free)`, inline: true },
-        )
+        .addFields({
+          name: `Memory`,
+          value: `- ${memInfo[0] / 1024 / 1024}MB/${
+            memInfo[1] / 1024 / 1024
+          }MB (${memInfo[2] / 1024 / 1024}MB Free)`,
+        });
 
-      return interaction.editReply({ embeds: [infoEmbed]});
+      return interaction.editReply({ embeds: [infoEmbed] });
     } catch (e) {
       console.log(e);
     }
