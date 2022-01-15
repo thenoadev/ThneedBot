@@ -10,6 +10,9 @@ module.exports = {
       option
         .setName("country")
         .setDescription("2 letter country code")
+        .addChoice('United States', 'us')
+        .addChoice('Canada', 'ca')
+        .addChoice('Other', 'other')
         .setRequired(true)
     ),
   async execute(interaction) {
@@ -56,7 +59,7 @@ module.exports = {
       }
     } catch (e) {
       const otherEmbed = new Discord.MessageEmbed()
-        .setTitle("Crisis lines")
+        .setTitle("Crisis lines - Error")
         .addField(
           "Emergencies",
           "911 (America), 112 (Europe, Oceania), 999 (Asia and Africa)",
