@@ -25,22 +25,20 @@ module.exports = {
         .setTitle(`Hardware Information`)
         .addField("Uptime", `${Math.floor(process.uptime() / 60)} mins`)
         .addFields(
-          { name: `Manufacturer`, value: `- ${cpuInfo[0]}`, inline: true },
-          { name: `Brand`, value: `- ${cpuInfo[1]}`, inline: true },
-          { name: `Speed`, value: `- ${cpuInfo[2]} GHz`, inline: true },
-          { name: `Cores`, value: `- ${cpuInfo[3]} cores`, inline: true }
-        )
-        .addFields(
-          { name: `Distro`, value: `- ${osInfo[0]}`, inline: true },
-          { name: `Platform`, value: `- ${osInfo[1]}`, inline: true },
-          { name: `Release`, value: `- ${osInfo[2]}`, inline: true }
+          { name: `CPU`, value: `${cpuInfo[0]} ${cpuInfo[1]}`, inline: true },
+          { name: `Speed`, value: `${cpuInfo[3]}c@${cpuInfo[2]} GHz`, inline: true },
         )
         .addFields({
           name: `Memory`,
-          value: `- ${memInfo[0] / 1024 / 1024}MB/${
+          value: `${memInfo[0] / 1024 / 1024}MB/${
             memInfo[1] / 1024 / 1024
           }MB (${memInfo[2] / 1024 / 1024}MB Free)`,
-        });
+        })
+        .addFields(
+          { name: `Distro`, value: `${osInfo[0]}`, inline: true },
+          { name: `Platform`, value: `Linux`, inline: true },
+          { name: `Release`, value: `Debian ${osInfo[2]}`, inline: true }
+        );
 
       return interaction.editReply({ embeds: [infoEmbed] });
     } catch (e) {
