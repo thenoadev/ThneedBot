@@ -13,6 +13,6 @@ module.exports = {
         .setDescription(`A **Thneed** is a highly versatile object knitted from the foliage of a Truffula Tree. According to the Once-ler, it is "A-fine-something-that-all-people need." It costs $3.98 according to The Lorax Book and The Lorax (film). `)
         .addField("Appearance", "The color of a Thneed depends on the color of the tree it is knitted from (however all Thneeds shown have a reddish-pink color). Its shape can also be changed to suit different purposes but its default form resembles a sweater.")
         .setImage(imageArray[randomNumber])
-        return interaction.editReply({ embeds: thneedDef, });
+        return interaction.editReply({ embeds: thneedDef });
 	},
 };
