@@ -5,18 +5,8 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("crisis")
-    .setDescription("Need someone to call ?")
-    .addStringOption((option) =>
-      option
-        .setName("country")
-        .setDescription("2 letter country code")
-        .addChoice('United States', 'us')
-        .addChoice('Canada', 'ca')
-        .addChoice('Other', 'other')
-        .setRequired(true)
-    ),
+    .setDescription("Need someone to call ?"),
   async execute(interaction) {
-    const country = interaction.options.getString("country");
     try {
       const usEmbed = new Discord.MessageEmbed()
         .setColor("#FF00FF")
@@ -50,13 +40,7 @@ module.exports = {
           "911 (America), 112 (Europe, Oceania), 999 (Asia and Africa)",
           true
         );
-      if (country == "us") {
-        return interaction.editReply({ embeds: [usEmbed] });
-      } else if (country == "ca") {
-        return interaction.editReply({ embeds: [caEmbed] });
-      } else {
-        return interaction.editReply({ embeds: [otherEmbed] });
-      }
+    return interaction.editReply({ embeds: [usEmbed, caEmbed, otherEmbed] });
     } catch (e) {
       const otherEmbed = new Discord.MessageEmbed()
         .setTitle("Crisis lines - Error")
