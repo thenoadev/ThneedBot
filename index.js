@@ -46,12 +46,29 @@ client.once("ready", () => {
 
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isCommand()) return;
+  let end1 = timer();
 
   const command = client.commands.get(interaction.commandName);
 
   if (!command) return;
-  await interaction.deferReply();
-  await command.execute(interaction);
+  let duration1 = end1();
+  try {
+    await interaction.deferReply();
+    await command.execute(interaction);
+    duration1 = duration1 * 1000;
+    duration1 = Math.round(duration1);
+    duration1 = duration1 + 1;
+    duration1 = duration1 / 1000;
+    console.emoji(`✅ `, `${interaction.commandName} took ${duration1} ms to execute` )
+  } catch(e) {
+    duration1 = duration1 * 1000;
+    duration1 = Math.round(duration1);
+    duration1 = duration1 + 1;
+    duration1 = duration1 / 1000;
+    console.log(e);
+    console.emoji(`❌ `, `${interaction.commandName} failed to execute. Took ${duration1} ms before fail` )
+  }
+
 });
 
 client.login(token);
