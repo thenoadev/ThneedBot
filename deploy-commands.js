@@ -2,6 +2,9 @@ const fs = require('fs');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { clientId, guildId, token } = require('./config.json');
+const emoji = require(`emoji-log`);
+const timer = require(`@calipsa/timer`);
+let end1 = timer();
 
 const commands = [];
 

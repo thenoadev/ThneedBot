@@ -1,6 +1,8 @@
 const fs = require("fs");
 const { Client, Collection, Intents } = require("discord.js");
 const { token } = require("./config.json");
+require('emoji-log');
+const timer = require(`@calipsa/timer`);
 
 const client = new Client({
   intents: [
@@ -66,7 +68,7 @@ client.on("interactionCreate", async (interaction) => {
     duration1 = duration1 + 1;
     duration1 = duration1 / 1000;
     console.log(e);
-    console.emoji(`❌ `, `${interaction.commandName} failed to execute. Took ${duration1} ms before fail` )
+    console.emoji(`🔥 `, `${interaction.commandName} failed to execute. Took ${duration1} ms before fail` )
   }
 
 });
