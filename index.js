@@ -1,9 +1,7 @@
 const fs = require("fs");
 const { Client, Collection, Intents } = require("discord.js");
 const { token } = require("./config.json");
-const TikTokScraper = require("tiktok-scraper");
 
-const users = TikTokScraper.userEvent("thneedgirlspam", { number: 1 });
 const client = new Client({
   intents: [
     Intents.FLAGS.GUILDS,
